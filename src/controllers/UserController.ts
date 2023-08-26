@@ -20,7 +20,8 @@ export class UserController{
        throw new BadRequest('Email do usuário já existe')
     }
 
-    const hashPassword = await bcrypt.hash(password, 10)
+    const newPassword = password.toString()
+    const hashPassword = await bcrypt.hash(newPassword, 10)
 
     const newUser = UserRepository.create({
       name,
@@ -59,7 +60,7 @@ export class UserController{
    }
 
    //if there isn't any data saved
-   const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '1h'})
+   const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '5h'})
 
    const {password: _, ...userLogin} = user
    return res.json({

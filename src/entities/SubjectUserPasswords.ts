@@ -1,5 +1,4 @@
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Room } from "./Room";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Password } from "./Passwords";
 
 @Entity('subjects')
@@ -7,7 +6,7 @@ export class userPassword{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({type: 'text'})
+  @Column()
   name: string;
 
   @ManyToMany(()=> Password, password => password.allDetails)

@@ -7,7 +7,7 @@ export class User{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({type: 'text'})
+  @Column()
   name: string;
 
   @Column({type: 'text', unique: true})
@@ -19,7 +19,7 @@ export class User{
   @ManyToMany(() => Password, allPasswords => allPasswords.allDetails)
   userPassword: Password[]
 
-  @Column({type: 'text'})
+  @Column()
   password: string;
 
   @CreateDateColumn({type: Date})

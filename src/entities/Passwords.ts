@@ -13,7 +13,7 @@ export class Password{
   @Column({type: 'text', unique: true})
   email: string;
 
-  @Column({type: 'text'})
+  @Column()
   password: string;
 
   @ManyToOne(()=> User, (register) => register.password_user)
@@ -24,11 +24,11 @@ export class Password{
   allDetails: userPassword[]
 
 
-  @Column({type: 'text'})
+  @Column()
   website: string;
 
   @Column({type: 'text', nullable: true})
-  security_code?: string;
+  security_code: string;
 
   @CreateDateColumn({type: Date})
   created_at: {
