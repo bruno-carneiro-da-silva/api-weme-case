@@ -43,6 +43,10 @@ export class UserController{
     return res.status(201).json(deleteUserDetails)
   }
 
+  async editPasswordsDetails(req: Request, res: Response){
+
+  }
+
 
   async login(req: Request, res: Response){
     const {email, password} = req.body;
@@ -70,11 +74,12 @@ export class UserController{
   }
 
   async createPasswordsDetails(req: Request, res: Response){
-    const {name, email, website, security_code, password} = req.body;
+    const {name,user, email, website, security_code, password} = req.body;
 
     const passwords = await PasswordsRepository.findBy({
-      email,
-      name, 
+      name,
+      user,
+      email, 
       website, 
       security_code,
       password 
@@ -86,6 +91,7 @@ export class UserController{
 
     const newDataPasswords = PasswordsRepository.create({
       name,
+      user,
       email,
       password,
       website,
@@ -145,5 +151,17 @@ export class UserController{
     })
 
     return res.json(passwordData)
+  }
+
+  // not done yet.
+  async forgotPassword(req: Request, res: Response){
+    const { email} = req.body;
+
+    const emailUser = await UserRepository.findOneBy({email: req.body.email})
+
+    if(!emailUser){
+      throw new BadRequest('O usuário não está cadastrado')
+    }
+
   }
 }
