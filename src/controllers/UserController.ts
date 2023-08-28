@@ -70,24 +70,22 @@ export class UserController{
   }
 
   async createPasswordsDetails(req: Request, res: Response){
-    const {id,user, email, website, security_code, password} = req.body;
+    const {name, email, website, security_code, password} = req.body;
 
     const passwords = await PasswordsRepository.findBy({
       email,
-      id,
-      user, 
+      name, 
       website, 
       security_code,
       password 
   })
 
-   if(passwords){
+   if(!passwords){
        throw new BadRequest('não existe conteúdos')
     }
 
     const newDataPasswords = PasswordsRepository.create({
-      user,
-      id,
+      name,
       email,
       password,
       website,
@@ -98,9 +96,7 @@ export class UserController{
 
     await PasswordsRepository.save(passwordsDetails)
 
-    return res.status(201).json({ 
-      dados: passwordsDetails
-    })
+    return res.status(201).json(passwordsDetails)
 
 
   }
@@ -139,7 +135,7 @@ export class UserController{
 
 
   async listDetailsByUser(req: Request, res: Response){
-  
+
     const passwordData = await PasswordsRepository.find({
       relations: {
         allDetails: true,
