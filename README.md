@@ -1,4 +1,4 @@
-## Content
+## Conteúdo
 * [Sobre a aplicação](#sobre-a-aplicação)
 * [Stacks](#stacks)
 * [Iniciando o projeto](#iniciando-o-projeto)
