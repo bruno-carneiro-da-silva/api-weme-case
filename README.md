@@ -54,6 +54,10 @@ Após realizar os comandos acima digite dentro da pasta do projeto:
 $ yarn dev //para rodar a api 
 ```
 
+## Link para baixar dump das requisições feita no insomnia: 
+
+https://drive.google.com/drive/folders/1-fHrEqq_A3mEIFnuf0nnoRi5Go8kgqrJ?usp=drive_link
+
 
 
 
