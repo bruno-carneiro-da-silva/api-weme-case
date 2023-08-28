@@ -8,6 +8,9 @@ export class Password{
   id: number;
 
   @Column({type: 'text'})
+  name: string;
+
+  @Column({type: 'text'})
   user?: string;
 
   @Column({type: 'text', unique: true})

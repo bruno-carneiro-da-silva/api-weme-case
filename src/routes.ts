@@ -16,7 +16,7 @@ routes.use(authMiddleware)
 
 routes.get('/profile', new UserController().getProfile)
 routes.get('/profile/:id', new UserController().listDetailsByUser)
-routes.post('/profile/create/:id', new UserController().createPasswordsDetails)
+routes.post('/profile/create', new UserController().createPasswordsDetails)
 routes.delete('/profile/delete/:id', new UserController().delete)
 routes.patch('/profile/create/:id', new UserController().listDetailsByUser)
 
