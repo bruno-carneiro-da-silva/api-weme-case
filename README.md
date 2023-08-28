@@ -51,7 +51,7 @@ $ docker compose ps //para checar o container rodando
 Após realizar os comandos acima digite dentro da pasta do projeto: 
 
 ```bash
-$ yarn dev //para rodar a api ou 
+$ yarn dev //para rodar a api 
 ```
 
 
