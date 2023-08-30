@@ -44,6 +44,7 @@ export class UserController{
   }
 
   async editPasswordsDetails(req: Request, res: Response){
+    
 
   }
 
